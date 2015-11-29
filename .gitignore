@@ -25,3 +25,9 @@ build/Release
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
+
+# bower components
+public/bower_components/
+
+# less is used, no css
+public/*.css
