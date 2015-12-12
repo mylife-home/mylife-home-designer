@@ -6,7 +6,8 @@ REPORTER    = spec
 TEST_FILES  = test
 
 lint:
-	$(JSHINT) lib/* test/*
+	$(JSHINT) lib/*
+#test/*
 
 test: lint
 	$(MOCHA) $(MOCHA_OPTS) --reporter $(REPORTER) $(TEST_FILES)
