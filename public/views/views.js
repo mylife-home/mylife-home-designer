@@ -2,5 +2,6 @@
 
 angular.module('mylife-home-designer.views', [
 //  'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'mylife-home-designer.components'
 ]);
