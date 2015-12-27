@@ -5,7 +5,7 @@ import 'angular';
 import 'angular-bootstrap';
 import './components/components.js';
 import './components/data.js';
-//import './components/repository.js';
+import './components/repository.js';
 import './views/views.js';
 import './views/main.js';
 import './views/startup.js';
