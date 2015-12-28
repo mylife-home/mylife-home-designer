@@ -1,3 +1,7 @@
 <ul>
-  <li ng-repeat='entity in startup.entities'>{{entity.id}} : {{entity.type}}</li>
+  <li ng-repeat="entity in startup.entities">{{entity.id}} : {{entity.type}}
+    <ul ng-if="entity.type === startup.types.RESOURCES" ng-repeat="key in entity.keys">
+      <li>{{key}}</li>
+    </ul>
+  </li>
 </ul>

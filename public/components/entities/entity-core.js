@@ -4,8 +4,8 @@ import EntityType from './entity-type.js';
 import Entity from './entity.js';
 
 export default class EntityCore extends Entity {
-  constructor(id, host) {
-    super(id, host);
+  constructor(id, host, access) {
+    super(id, host, access);
   }
 
   get type() {

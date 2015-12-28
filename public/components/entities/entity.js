@@ -3,9 +3,10 @@
 import EntityType from './entity-type.js';
 
 export default class Entity {
-  constructor(id, host) {
-    this._id = id;
-    this._host = host;
+  constructor(id, host, access) {
+    this._id     = id;
+    this._host   = host;
+    this._access = access;
   }
 
   get owner() {
@@ -22,5 +23,9 @@ export default class Entity {
 
   get type() {
     return EntityType.UNKNOWN;
+  }
+
+  get access() {
+    return this._access;
   }
 };

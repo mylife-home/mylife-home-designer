@@ -4,7 +4,12 @@ import entities from './entities/index.js';
 
 angular.module('mylife-home-designer.components')
 
-.factory('repository', function(socket) {
+.factory('repository', function(socket, resources) {
+
+  const access = {
+    socket,
+    resources
+  };
 
   function createEntity(data) {
     let EType = entities.Entity;
@@ -13,7 +18,7 @@ angular.module('mylife-home-designer.components')
       case entities.EntityType.RESOURCES : EType = entities.EntityResources; break;
       case entities.EntityType.UI        : EType = entities.EntityUI; break;
     }
-    entityList.push(new EType(data.id, data.host));
+    entityList.push(new EType(data.id, data.host, access));
   }
 
   function deleteEntity(data) {
@@ -29,6 +34,7 @@ angular.module('mylife-home-designer.components')
   socket.on('repository:remove', deleteEntity);
 
   return {
-    entities: entityList
+    entities : entityList,
+    types    : entities.EntityType
   };
 });

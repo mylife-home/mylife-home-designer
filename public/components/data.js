@@ -6,13 +6,23 @@ angular.module('mylife-home-designer.components')
 
 .factory('resources', function($http) {
   return {
-    load: function(name, cb) {
-      $http.get('/resources/get/' + name, { cache : true })
-        .then(function(res) {
-          cb(res.data);
-        }, function(error) {
-          console.log(error);
-        });
+    resources: {
+      keys: function(entityId, cb) {
+        $http.get(`/resources/resources/keys/${entityId}`)
+          .then(function(res) {
+            cb(res.data);
+          }, function(error) {
+            console.log(error);
+          });
+      },
+      load: function(entityId, key, cb) {
+        $http.get(`/resources/resources/load/${entityId}/${key}`)
+          .then(function(res) {
+            cb(res.data);
+          }, function(error) {
+            console.log(error);
+          });
+      }
     }
   };
 })
