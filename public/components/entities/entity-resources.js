@@ -6,12 +6,14 @@ import Entity from './entity.js';
 export default class EntityResources extends Entity {
   constructor(id, host, access) {
     super(id, host, access);
-
-    this.loadKeys(() => {});
   }
 
   get type() {
     return EntityType.RESOURCES;
+  }
+
+  _load() {
+    this.loadKeys(() => {});
   }
 
   get keys() {

@@ -11,4 +11,7 @@ export default class EntityUI extends Entity {
   get type() {
     return EntityType.UI;
   }
+
+  _load() {
+  }
 };

@@ -7,6 +7,18 @@ export default class Entity {
     this._id     = id;
     this._host   = host;
     this._access = access;
+
+    this._load();
+  }
+
+  reset(done) {
+    this.access.resources.reset(this.id, () => {
+      this._load();
+      done();
+    });
+  }
+
+  _load() {
   }
 
   get owner() {

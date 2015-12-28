@@ -6,6 +6,14 @@ angular.module('mylife-home-designer.components')
 
 .factory('resources', function($http) {
   return {
+    reset: function(entityId, cb) {
+      $http.get(`/resources/reset/${entityId}`)
+        .then(function(res) {
+          cb(res.data);
+        }, function(error) {
+          console.log(error);
+        });
+    },
     resources: {
       keys: function(entityId, cb) {
         $http.get(`/resources/resources/keys/${entityId}`)
@@ -17,6 +25,24 @@ angular.module('mylife-home-designer.components')
       },
       load: function(entityId, key, cb) {
         $http.get(`/resources/resources/load/${entityId}/${key}`)
+          .then(function(res) {
+            cb(res.data);
+          }, function(error) {
+            console.log(error);
+          });
+      }
+    },
+    core: {
+      plugins: function(entityId, cb) {
+        $http.get(`/resources/core/plugins/${entityId}`)
+          .then(function(res) {
+            cb(res.data);
+          }, function(error) {
+            console.log(error);
+          });
+      },
+      components: function(entityId, cb) {
+        $http.get(`/resources/core/components/${entityId}`)
           .then(function(res) {
             cb(res.data);
           }, function(error) {
