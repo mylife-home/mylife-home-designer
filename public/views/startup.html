@@ -1,5 +1,5 @@
 <ul>
-  <li ng-repeat="entity in startup.entities">{{entity.id}} : {{entity.type}}
+  <li ng-repeat="entity in startup.entities">{{entity.id}} : {{entity.type}}<button ng-click="entity.reset()">reset</button>
     <ul ng-if="entity.type === startup.types.RESOURCES">keys
       <li ng-repeat="key in entity.keys">{{key}}</li>
     </ul>

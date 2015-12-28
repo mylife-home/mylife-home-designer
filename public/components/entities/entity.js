@@ -14,7 +14,9 @@ export default class Entity {
   reset(done) {
     this.access.resources.reset(this.id, () => {
       this._load();
-      done();
+      if(done) {
+        done();
+      }
     });
   }
 
