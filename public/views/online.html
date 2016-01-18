@@ -1,5 +1,5 @@
-<ul>
-  <li ng-repeat="entity in online.entities">{{entity.id}} : {{entity.type}}<button ng-click="entity.reset()">reset</button>
+<ul class="list-group">
+  <li class="list-group-item" ng-repeat="entity in online.entities">{{entity.host}} : {{entity.type}}<button class="btn btn-default" ng-click="entity.reset()">reset</button>
     <ul ng-if="entity.type === online.types.RESOURCES">keys
       <li ng-repeat="key in entity.keys">{{key}}</li>
     </ul>
