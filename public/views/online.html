@@ -1,17 +1,28 @@
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="entity in online.entities">
-    <img enums-image-src="{ type: 'EntityType', value: entity.type }"></img>
-    {{entity.host}} : {{entity.type}}
-    <button class="btn btn-default" ng-click="entity.reset()">reset</button>
+    <div class="panel panel-default">
+      <div class="panel-heading">
 
-    <ul ng-if="entity.type === online.types.RESOURCES">keys
-      <li ng-repeat="key in entity.keys">{{key}}</li>
-    </ul>
-    <ul ng-if="entity.type === online.types.CORE">plugins
-      <li ng-repeat="plugin in entity.plugins">{{plugin.library}}:{{plugin.type}}</li>
-    </ul>
-    <ul ng-if="entity.type === online.types.CORE">components
-      <li ng-repeat="component in entity.components">{{component.id}}</li>
-    </ul>
+        <img class="img-responsive" static-image-src="Entity" title="Entity"></img>
+        <h3 class="panel-title">{{entity.host}}</h3>
+        <img class="img-responsive" enums-image-src="{ type: 'EntityType', value: entity.type }" enums-title="{ type: 'EntityType', value: entity.type }"></img>
+        <button class="btn btn-default" ng-click="entity.reset()"><img class="img-responsive" static-image-src="CommandRefresh" title="Refresh"></img></button>
+
+      </div>
+      <div class="panel-body">
+
+        <ul ng-if="entity.type === online.types.RESOURCES">keys
+          <li ng-repeat="key in entity.keys">{{key}}</li>
+        </ul>
+        <ul ng-if="entity.type === online.types.CORE">plugins
+          <li ng-repeat="plugin in entity.plugins">{{plugin.library}}:{{plugin.type}}</li>
+        </ul>
+        <ul ng-if="entity.type === online.types.CORE">components
+          <li ng-repeat="component in entity.components">{{component.id}}</li>
+        </ul>
+
+      </div>
+    </div>
+
   </li>
 </ul>
