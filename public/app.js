@@ -9,6 +9,7 @@ import './components/repository.js';
 import './views/views.js';
 import './views/main.js';
 import './views/startup.js';
+import './views/online.js';
 
 angular.module('mylife-home-designer', [
 //  'ngRoute',
