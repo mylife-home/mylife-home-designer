@@ -3,16 +3,18 @@
     <div class="panel panel-default">
       <div class="panel-heading text-center">
 
-        <button class="btn btn-default pull-left" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button>
+        <button class="btn btn-default pull-left" ng-click="isCollapsed = !isCollapsed"><img class="mylife-icon" dynamic-image-src="isCollapsed ? 'ArrowRightBlue' : 'ArrowDownBlue'" title="Toggle collapse"></button>
         <button class="btn btn-default pull-right" ng-click="entity.reset()"><img class="mylife-icon" static-image-src="CommandRefresh" title="Refresh"></button>
 
-        <h3 class="panel-title mylife-panel-title">
-          <img class="mylife-icon" static-image-src="Entity" title="Entity">
-          &nbsp;
-          {{entity.host}}
-          &nbsp;
-          <img class="mylife-icon" enums-image-src="{ type: 'EntityType', value: entity.type }" enums-title="{ type: 'EntityType', value: entity.type }">
-        </h3>
+        <button class="btn btn-default mylife-panel-title">
+          <h3 class="panel-title">
+            <img class="mylife-icon" static-image-src="Entity" title="Entity">
+            &nbsp;
+            {{entity.host}}
+            &nbsp;
+            <img class="mylife-icon" enums-image-src="{ type: 'EntityType', value: entity.type }" enums-title="{ type: 'EntityType', value: entity.type }">
+          </h3>
+        </button>
 
       </div>
       <div class="panel-body" uib-collapse="isCollapsed">

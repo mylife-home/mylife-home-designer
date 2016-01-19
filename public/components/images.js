@@ -68,6 +68,23 @@ angular.module('mylife-home-designer.components')
     DialogIconInfo          : 'images/open-icon-library/status/dialog-declare.png',
     DialogIconQuestion      : 'images/open-icon-library/status/dialog-question-2.png',
     DialogIconWarning       : 'images/open-icon-library/status/dialog-error.png',
-    DialogIconError         : 'images/open-icon-library/status/dialog-error-5.png'
+    DialogIconError         : 'images/open-icon-library/status/dialog-error-5.png',
+
+    ArrowDownBlue           : 'images/open-icon-library/actions/arrow-down.png',
+    ArrowDownGreen          : 'images/open-icon-library/actions/arrow-down-3.png',
+    ArrowDownDoubleBlue     : 'images/open-icon-library/actions/arrow-down-double.png',
+    ArrowDownDoubleGreen    : 'images/open-icon-library/actions/arrow-down-double-3.png',
+    ArrowUpBlue             : 'images/open-icon-library/actions/arrow-up.png',
+    ArrowUpGreen            : 'images/open-icon-library/actions/arrow-up-3.png',
+    ArrowUpDoubleBlue       : 'images/open-icon-library/actions/arrow-up-double.png',
+    ArrowUpDoubleGreen      : 'images/open-icon-library/actions/arrow-up-double-3.png',
+    ArrowLeftBlue           : 'images/open-icon-library/actions/arrow-left.png',
+    ArrowLeftGreen          : 'images/open-icon-library/actions/arrow-left-3.png',
+    ArrowLeftDoubleBlue     : 'images/open-icon-library/actions/arrow-left-double.png',
+    ArrowLeftDoubleGreen    : 'images/open-icon-library/actions/arrow-left-double-3.png',
+    ArrowRightBlue          : 'images/open-icon-library/actions/arrow-right.png',
+    ArrowRightGreen         : 'images/open-icon-library/actions/arrow-right-3.png',
+    ArrowRightDoubleBlue    : 'images/open-icon-library/actions/arrow-right-double.png',
+    ArrowRightDoubleGreen   : 'images/open-icon-library/actions/arrow-right-double-3.png'
   });
 });

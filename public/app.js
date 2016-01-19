@@ -14,6 +14,7 @@ import './directives/directives.js';
 import './directives/enums-image-src.js';
 import './directives/enums-title.js';
 import './directives/static-image-src.js';
+import './directives/dynamic-image-src.js';
 
 import './views/views.js';
 import './views/main.js';
