@@ -26,6 +26,7 @@ import './views/online.js';
 angular.module('mylife-home-designer', [
 //  'ngRoute',
   'ui.bootstrap',
+  'ui.layout',
   'mylife-home-designer.components',
   'mylife-home-designer.views',
   'mylife-home-designer.directives'

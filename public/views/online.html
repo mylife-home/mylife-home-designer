@@ -1,36 +1,52 @@
-<ul class="list-group">
-  <li class="list-group-item" ng-repeat="entity in online.entities">
-    <div class="panel panel-default">
-      <div class="panel-heading text-center">
+<script type="text/ng-template" id="online-group-view">
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="entity in online.entities">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
 
-        <button class="btn btn-default pull-left" ng-click="isCollapsed = !isCollapsed"><img class="mylife-icon" dynamic-image-src="isCollapsed ? 'ArrowRightBlue' : 'ArrowDownBlue'" title="Toggle collapse"></button>
-        <button class="btn btn-default pull-right" ng-click="entity.reset()"><img class="mylife-icon" static-image-src="CommandRefresh" title="Refresh"></button>
+          <button class="btn btn-default pull-left" ng-click="isCollapsed = !isCollapsed"><img class="mylife-icon" dynamic-image-src="isCollapsed ? 'ArrowRightBlue' : 'ArrowDownBlue'" title="Toggle collapse"></button>
+          <button class="btn btn-default pull-right" ng-click="entity.reset()"><img class="mylife-icon" static-image-src="CommandRefresh" title="Refresh"></button>
 
-        <button class="btn btn-default mylife-panel-title">
-          <h3 class="panel-title">
-            <img class="mylife-icon" static-image-src="Entity" title="Entity">
-            &nbsp;
-            {{entity.host}}
-            &nbsp;
-            <img class="mylife-icon" enums-image-src="{ type: 'EntityType', value: entity.type }" enums-title="{ type: 'EntityType', value: entity.type }">
-          </h3>
-        </button>
+          <button class="btn btn-default mylife-panel-title">
+            <h3 class="panel-title">
+              <img class="mylife-icon" static-image-src="Entity" title="Entity">
+              &nbsp;
+              {{entity.host}}
+              &nbsp;
+              <img class="mylife-icon" enums-image-src="{ type: 'EntityType', value: entity.type }" enums-title="{ type: 'EntityType', value: entity.type }">
+            </h3>
+          </button>
 
+        </div>
+        <div class="panel-body" uib-collapse="isCollapsed">
+
+          <ul ng-if="entity.type === online.types.RESOURCES">keys
+            <li ng-repeat="key in entity.keys">{{key}}</li>
+          </ul>
+          <ul ng-if="entity.type === online.types.CORE">plugins
+            <li ng-repeat="plugin in entity.plugins">{{plugin.library}}:{{plugin.type}}</li>
+          </ul>
+          <ul ng-if="entity.type === online.types.CORE">components
+            <li ng-repeat="component in entity.components">{{component.id}}</li>
+          </ul>
+
+        </div>
       </div>
-      <div class="panel-body" uib-collapse="isCollapsed">
 
-        <ul ng-if="entity.type === online.types.RESOURCES">keys
-          <li ng-repeat="key in entity.keys">{{key}}</li>
-        </ul>
-        <ul ng-if="entity.type === online.types.CORE">plugins
-          <li ng-repeat="plugin in entity.plugins">{{plugin.library}}:{{plugin.type}}</li>
-        </ul>
-        <ul ng-if="entity.type === online.types.CORE">components
-          <li ng-repeat="component in entity.components">{{component.id}}</li>
-        </ul>
+    </li>
+  </ul>
+</script>
 
-      </div>
-    </div>
+<script type="text/ng-template" id="online-detail-view">
+  TODO
+</script>
 
-  </li>
-</ul>
+<div ui-layout="{ flow : 'column' }">
+  <div ui-layout-container>
+    <div ng-include="'online-group-view'"></div>
+  </div>
+  <div ui-layout-container>
+    <div ng-include="'online-detail-view'"></div>
+  </div>
+</div>
+
