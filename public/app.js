@@ -3,6 +3,7 @@
 import 'angular';
 //import 'angular-route';
 import 'angular-bootstrap';
+import 'angular-ui-layout';
 
 import './components/components.js';
 import './components/data.js';
