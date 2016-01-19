@@ -3,13 +3,14 @@
     <div class="panel panel-default">
       <div class="panel-heading">
 
-        <img class="img-responsive" static-image-src="Entity" title="Entity"></img>
+        <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button>
+        <img class="mylife-icon" static-image-src="Entity" title="Entity"></img>
         <h3 class="panel-title">{{entity.host}}</h3>
-        <img class="img-responsive" enums-image-src="{ type: 'EntityType', value: entity.type }" enums-title="{ type: 'EntityType', value: entity.type }"></img>
-        <button class="btn btn-default" ng-click="entity.reset()"><img class="img-responsive" static-image-src="CommandRefresh" title="Refresh"></img></button>
+        <img class="mylife-icon" enums-image-src="{ type: 'EntityType', value: entity.type }" enums-title="{ type: 'EntityType', value: entity.type }"></img>
+        <button class="btn btn-default" ng-click="entity.reset()"><img class="mylife-icon" static-image-src="CommandRefresh" title="Refresh"></img></button>
 
       </div>
-      <div class="panel-body">
+      <div class="panel-body" uib-collapse="isCollapsed">
 
         <ul ng-if="entity.type === online.types.RESOURCES">keys
           <li ng-repeat="key in entity.keys">{{key}}</li>
