@@ -1,13 +1,18 @@
 <ul class="list-group">
   <li class="list-group-item" ng-repeat="entity in online.entities">
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading text-center">
 
-        <button type="button" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button>
-        <img class="mylife-icon" static-image-src="Entity" title="Entity"></img>
-        <h3 class="panel-title">{{entity.host}}</h3>
-        <img class="mylife-icon" enums-image-src="{ type: 'EntityType', value: entity.type }" enums-title="{ type: 'EntityType', value: entity.type }"></img>
-        <button class="btn btn-default" ng-click="entity.reset()"><img class="mylife-icon" static-image-src="CommandRefresh" title="Refresh"></img></button>
+        <button class="btn btn-default pull-left" ng-click="isCollapsed = !isCollapsed">Toggle collapse</button>
+        <button class="btn btn-default pull-right" ng-click="entity.reset()"><img class="mylife-icon" static-image-src="CommandRefresh" title="Refresh"></button>
+
+        <h3 class="panel-title mylife-panel-title">
+          <img class="mylife-icon" static-image-src="Entity" title="Entity">
+          &nbsp;
+          {{entity.host}}
+          &nbsp;
+          <img class="mylife-icon" enums-image-src="{ type: 'EntityType', value: entity.type }" enums-title="{ type: 'EntityType', value: entity.type }">
+        </h3>
 
       </div>
       <div class="panel-body" uib-collapse="isCollapsed">
