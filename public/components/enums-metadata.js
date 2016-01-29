@@ -9,6 +9,12 @@ angular.module('mylife-home-designer.components')
       { id : 'CORE',      value: 1, image: images.NetCore,  displayName: 'Core'      },
       { id : 'RESOURCES', value: 2, image: images.NetUIRes, displayName: 'Resources' },
       { id : 'UI',        value: 3, image: images.NetUI,    displayName: 'UI'        }
+    ],
+
+    PluginUsage: [
+      { id : 'vpanel',   value: 1, image: images.PluginUsageVPanel,  displayName: 'Virtual Panel' },
+      { id : 'ui',       value: 2, image: images.PluginUsageUI,  displayName: 'UI' },
+      { id : 'driver',   value: 3, image: images.PluginUsageDriver,  displayName: 'Driver' }
     ]
   };
 
