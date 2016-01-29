@@ -5,7 +5,7 @@
         <div class="panel-heading text-center">
 
           <button class="btn btn-default pull-left" ng-click="isCollapsed = !isCollapsed"><img class="mylife-icon" dynamic-image-src="isCollapsed ? 'ArrowRightBlue' : 'ArrowDownBlue'" title="Toggle collapse"></button>
-          <button class="btn btn-default pull-right" ng-click="entity.reset()"><img class="mylife-icon" static-image-src="CommandRefresh" title="Refresh"></button>
+          <button class="btn btn-default pull-right" ng-click="online.refresh(entity)"><img class="mylife-icon" static-image-src="CommandRefresh" title="Refresh"></button>
 
           <button class="btn btn-default mylife-panel-title" ng-click="online.showEntityDetail(entity)">
             <h3 class="panel-title">
@@ -20,14 +20,21 @@
         </div>
         <div class="panel-body" uib-collapse="isCollapsed">
 
-          <ul ng-if="entity.type === online.types.RESOURCES">keys
-            <li ng-repeat="key in entity.keys"><button ng-click="online.showResourceDetail(entity, key)" class="btn btn-default">{{key}}</button></li>
-          </ul>
-          <ul ng-if="entity.type === online.types.CORE">plugins
-            <li ng-repeat="plugin in entity.plugins"><button ng-click="online.showPluginDetail(entity, plugin)" class="btn btn-default">{{plugin.library}}:{{plugin.type}}</button></li>
-          </ul>
-          <ul ng-if="entity.type === online.types.CORE">components
-            <li ng-repeat="component in entity.components"><button ng-click="online.showComponentDetail(entity, component)" class="btn btn-default">{{component.id}}</button></li>
+          <ul>
+            <li ng-if="entity.type === online.types.RESOURCES"
+                ng-repeat="key in entity.keys">
+              <button ng-click="online.showResourceDetail(entity, key)" class="btn btn-default">{{key}}</button>
+            </li>
+
+            <li ng-if="entity.type === online.types.CORE"
+                ng-repeat="plugin in entity.plugins">
+              <button ng-click="online.showPluginDetail(entity, plugin)" class="btn btn-default">{{plugin.library}}:{{plugin.type}}</button>
+            </li>
+
+            <li ng-if="entity.type === online.types.CORE"
+                ng-repeat="component in entity.components">
+              <button ng-click="online.showComponentDetail(entity, component)" class="btn btn-default">{{component.id}}</button>
+            </li>
           </ul>
 
         </div>
@@ -38,7 +45,139 @@
 </script>
 
 <script type="text/ng-template" id="online-detail-view">
-  TODO&nbsp;{{ online.detail }}
+  <div ng-show="online.detail.type === 'entity'"    ng-include="'online-detail-view-entity'"   ></div>
+  <div ng-show="online.detail.type === 'resource'"  ng-include="'online-detail-view-resource'" ></div>
+  <div ng-show="online.detail.type === 'plugin'"    ng-include="'online-detail-view-plugin'"   ></div>
+  <div ng-show="online.detail.type === 'component'" ng-include="'online-detail-view-component'"></div>
+</script>
+
+<script type="text/ng-template" id="online-detail-view-entity">
+  <div class="panel panel-default">
+    <div class="panel-heading text-center">
+
+      <div class="pull-left">
+        <h3 class="panel-title">
+          <img class="mylife-icon" static-image-src="Entity" title="Entity">
+          &nbsp;
+          Entity
+        </h3>
+      <div>
+
+      <div class="pull-right">
+        <h3 class="panel-title">
+          <enum-text type="'EntityType'" value="entity.type" />
+          &nbsp;
+          <img class="mylife-icon" enums-image-src="{ type: 'EntityType', value: entity.type }" enums-title="{ type: 'EntityType', value: entity.type }">
+        </h3>
+      <div>
+
+      <button class="btn btn-default pull-right" ng-click="online.refresh(online.detail.entity)"><img class="mylife-icon" static-image-src="CommandRefresh" title="Refresh"></button>
+
+      <div class="mylife-panel-title">
+        <h3 class="panel-title">
+          <img class="mylife-icon" static-image-src="Entity" title="Entity">
+          &nbsp;
+          {{online.detail.entity}}
+          &nbsp;
+          <button class="btn btn-default" ng-click="online.refresh(online.detail.entity)"><img class="mylife-icon" static-image-src="CommandRefresh" title="Refresh"></button>
+        </h3>
+      </div>
+
+    </div>
+    <div class="panel-body">
+
+      <ul ng-if="online.detail.entity.type === online.types.RESOURCES">keys
+        <li ng-repeat="key in online.detail.entity.keys"><button ng-click="online.showResourceDetail(online.detail.entity, key)" class="btn btn-default">{{key}}</button></li>
+      </ul>
+      <ul ng-if="online.detail.entity.type === online.types.CORE">plugins
+        <li ng-repeat="plugin in online.detail.entity.plugins"><button ng-click="online.showPluginDetail(online.detail.entity, plugin)" class="btn btn-default">{{plugin.library}}:{{plugin.type}}</button></li>
+      </ul>
+      <ul ng-if="online.detail.entity.type === online.types.CORE">components
+        <li ng-repeat="component in online.detail.entity.components"><button ng-click="online.showComponentDetail(online.detail.entity, component)" class="btn btn-default">{{component.id}}</button></li>
+      </ul>
+
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="online-detail-view-resource">
+  <div class="panel panel-default">
+    <div class="panel-heading text-center">
+
+      <div class="mylife-panel-title">
+        <h3 class="panel-title">
+          <img class="mylife-icon" static-image-src="Resource" title="Resource">
+          &nbsp;
+          {{online.detail.entity.host}}
+          &nbsp;
+          -
+          &nbsp;
+          {{online.detail.key}}
+          &nbsp;
+        </h3>
+      </div>
+
+    </div>
+    <div class="panel-body">
+
+      {{ online.detail.key }}
+
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="online-detail-view-plugin">
+  <div class="panel panel-default">
+    <div class="panel-heading text-center">
+
+      <div class="mylife-panel-title">
+        <h3 class="panel-title">
+          <img class="mylife-icon" static-image-src="Plugin" title="Plugin">
+          &nbsp;
+          {{online.detail.entity.host}}
+          &nbsp;
+          -
+          &nbsp;
+          {{online.detail.plugin.library}}:{{online.detail.plugin.type}}
+          &nbsp;
+          <img class="mylife-icon" enums-image-src="{ type: 'PluginUsage', value: online.detail.plugin.usage }" enums-title="{ type: 'PluginUsage', value: online.detail.plugin.usage }">
+        </h3>
+      </div>
+
+    </div>
+    <div class="panel-body">
+
+      {{ online.detail.plugin }}
+
+    </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="online-detail-view-component">
+  <div class="panel panel-default">
+    <div class="panel-heading text-center">
+
+      <div class="mylife-panel-title">
+        <h3 class="panel-title">
+          <img class="mylife-icon" static-image-src="Component" title="Component">
+          &nbsp;
+          {{online.detail.entity.host}}
+          &nbsp;
+          -
+          &nbsp;
+          {{online.component.id}}
+          &nbsp;
+          <img class="mylife-icon" enums-image-src="{ type: 'PluginUsage', value: online.detail.plugin.usage }" enums-title="{ type: 'PluginUsage', value: online.detail.plugin.usage }">
+        </h3>
+      </div>
+
+    </div>
+    <div class="panel-body">
+
+      {{ online.detail.component }}
+
+    </div>
+  </div>
 </script>
 
 <div class="container-fluid">

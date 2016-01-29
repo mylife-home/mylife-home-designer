@@ -13,6 +13,7 @@ import './components/enums-metadata.js';
 import './directives/directives.js';
 import './directives/enums-image-src.js';
 import './directives/enums-title.js';
+import './directives/enums-text.js';
 import './directives/static-image-src.js';
 import './directives/dynamic-image-src.js';
 

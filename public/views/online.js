@@ -8,6 +8,11 @@ angular.module('mylife-home-designer.views')
   this.types    = repository.types;
   this.detail   = null;
 
+  this.refresh = function(entity) {
+    entity.reset();
+    this.detail = null;
+  }
+
   this.showEntityDetail    = function(entity)            { this.detail = { type: 'entity',    entity }; };
   this.showResourceDetail  = function(entity, key)       { this.detail = { type: 'resource',  entity, key }; };
   this.showPluginDetail    = function(entity, plugin)    { this.detail = { type: 'plugin',    entity, plugin }; };
