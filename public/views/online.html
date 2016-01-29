@@ -7,7 +7,7 @@
           <button class="btn btn-default pull-left" ng-click="isCollapsed = !isCollapsed"><img class="mylife-icon" dynamic-image-src="isCollapsed ? 'ArrowRightBlue' : 'ArrowDownBlue'" title="Toggle collapse"></button>
           <button class="btn btn-default pull-right" ng-click="entity.reset()"><img class="mylife-icon" static-image-src="CommandRefresh" title="Refresh"></button>
 
-          <button class="btn btn-default mylife-panel-title">
+          <button class="btn btn-default mylife-panel-title" ng-click="online.showEntityDetail(entity)">
             <h3 class="panel-title">
               <img class="mylife-icon" static-image-src="Entity" title="Entity">
               &nbsp;
@@ -21,13 +21,13 @@
         <div class="panel-body" uib-collapse="isCollapsed">
 
           <ul ng-if="entity.type === online.types.RESOURCES">keys
-            <li ng-repeat="key in entity.keys">{{key}}</li>
+            <li ng-repeat="key in entity.keys"><button ng-click="online.showResourceDetail(entity, key)" class="btn btn-default">{{key}}</button></li>
           </ul>
           <ul ng-if="entity.type === online.types.CORE">plugins
-            <li ng-repeat="plugin in entity.plugins">{{plugin.library}}:{{plugin.type}}</li>
+            <li ng-repeat="plugin in entity.plugins"><button ng-click="online.showPluginDetail(entity, plugin)" class="btn btn-default">{{plugin.library}}:{{plugin.type}}</button></li>
           </ul>
           <ul ng-if="entity.type === online.types.CORE">components
-            <li ng-repeat="component in entity.components">{{component.id}}</li>
+            <li ng-repeat="component in entity.components"><button ng-click="online.showComponentDetail(entity, component)" class="btn btn-default">{{component.id}}</button></li>
           </ul>
 
         </div>
@@ -38,7 +38,7 @@
 </script>
 
 <script type="text/ng-template" id="online-detail-view">
-  TODO
+  TODO&nbsp;{{ online.detail }}
 </script>
 
 <div class="container-fluid">
