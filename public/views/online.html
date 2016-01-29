@@ -24,16 +24,19 @@
             <li ng-if="entity.type === online.types.RESOURCES"
                 ng-repeat="key in entity.keys">
               <button ng-click="online.showResourceDetail(entity, key)" class="btn btn-default">{{key}}</button>
+              <!-- TODO beautify + icon -->
             </li>
 
             <li ng-if="entity.type === online.types.CORE"
                 ng-repeat="plugin in entity.plugins">
               <button ng-click="online.showPluginDetail(entity, plugin)" class="btn btn-default">{{plugin.library}}:{{plugin.type}}</button>
+              <!-- TODO beautify + icon + usage icon -->
             </li>
 
             <li ng-if="entity.type === online.types.CORE"
                 ng-repeat="component in entity.components">
               <button ng-click="online.showComponentDetail(entity, component)" class="btn btn-default">{{component.id}}</button>
+              <!-- TODO beautify + icon + plugin library:type -->
             </li>
           </ul>
 
