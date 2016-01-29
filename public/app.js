@@ -3,7 +3,6 @@
 import 'angular';
 //import 'angular-route';
 import 'angular-bootstrap';
-import 'angular-ui-layout';
 
 import './components/components.js';
 import './components/data.js';
@@ -26,7 +25,6 @@ import './views/online.js';
 angular.module('mylife-home-designer', [
 //  'ngRoute',
   'ui.bootstrap',
-  'ui.layout',
   'mylife-home-designer.components',
   'mylife-home-designer.views',
   'mylife-home-designer.directives'

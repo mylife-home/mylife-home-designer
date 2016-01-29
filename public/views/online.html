@@ -41,12 +41,9 @@
   TODO
 </script>
 
-<div ui-layout="{ flow : 'column' }">
-  <div ui-layout-container>
-    <div ng-include="'online-group-view'"></div>
-  </div>
-  <div ui-layout-container>
-    <div ng-include="'online-detail-view'"></div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3" ng-include="'online-group-view'"></div>
+    <div class="col-md-9" ng-include="'online-detail-view'"></div>
   </div>
 </div>
-
