@@ -61,23 +61,19 @@
           &nbsp;
           Entity
         </h3>
-      <div>
+      </div>
 
       <div class="pull-right">
         <h3 class="panel-title">
-          <enum-text type="'EntityType'" value="entity.type" />
+          <enums-text spec="{ type: 'EntityType', value: online.detail.entity.type }"></enums-text>
           &nbsp;
-          <img class="mylife-icon" enums-image-src="{ type: 'EntityType', value: entity.type }" enums-title="{ type: 'EntityType', value: entity.type }">
+          <img class="mylife-icon" enums-image-src="{ type: 'EntityType', value: online.detail.entity.type }" enums-title="{ type: 'EntityType', value: online.detail.entity.type }">
         </h3>
-      <div>
-
-      <button class="btn btn-default pull-right" ng-click="online.refresh(online.detail.entity)"><img class="mylife-icon" static-image-src="CommandRefresh" title="Refresh"></button>
+      </div>
 
       <div class="mylife-panel-title">
         <h3 class="panel-title">
-          <img class="mylife-icon" static-image-src="Entity" title="Entity">
-          &nbsp;
-          {{online.detail.entity}}
+          {{online.detail.entity.id}}
           &nbsp;
           <button class="btn btn-default" ng-click="online.refresh(online.detail.entity)"><img class="mylife-icon" static-image-src="CommandRefresh" title="Refresh"></button>
         </h3>
@@ -104,16 +100,23 @@
   <div class="panel panel-default">
     <div class="panel-heading text-center">
 
-      <div class="mylife-panel-title">
+      <div class="pull-left">
         <h3 class="panel-title">
           <img class="mylife-icon" static-image-src="Resource" title="Resource">
           &nbsp;
-          {{online.detail.entity.host}}
-          &nbsp;
-          -
-          &nbsp;
+          Resource
+        </h3>
+      </div>
+
+      <div class="pull-right">
+        <h3 class="panel-title">
+          <button class="btn btn-default"><img class="mylife-icon" static-image-src="CommandRefresh" title="Refresh"></button> <!-- TODO: ng-click-->
+        </h3>
+      </div>
+
+      <div class="mylife-panel-title">
+        <h3 class="panel-title">
           {{online.detail.key}}
-          &nbsp;
         </h3>
       </div>
 
@@ -130,17 +133,25 @@
   <div class="panel panel-default">
     <div class="panel-heading text-center">
 
-      <div class="mylife-panel-title">
+      <div class="pull-left">
         <h3 class="panel-title">
           <img class="mylife-icon" static-image-src="Plugin" title="Plugin">
           &nbsp;
-          {{online.detail.entity.host}}
-          &nbsp;
-          -
-          &nbsp;
-          {{online.detail.plugin.library}}:{{online.detail.plugin.type}}
+          Plugin
+        </h3>
+      </div>
+
+      <div class="pull-right">
+        <h3 class="panel-title">
+          <enums-text spec="{ type: 'PluginUsage', value: online.detail.plugin.usage }"></enums-text>
           &nbsp;
           <img class="mylife-icon" enums-image-src="{ type: 'PluginUsage', value: online.detail.plugin.usage }" enums-title="{ type: 'PluginUsage', value: online.detail.plugin.usage }">
+        </h3>
+      </div>
+
+      <div class="mylife-panel-title">
+        <h3 class="panel-title">
+          {{online.detail.plugin.library}}:{{online.detail.plugin.type}}
         </h3>
       </div>
 
@@ -157,17 +168,25 @@
   <div class="panel panel-default">
     <div class="panel-heading text-center">
 
-      <div class="mylife-panel-title">
+      <div class="pull-left">
         <h3 class="panel-title">
           <img class="mylife-icon" static-image-src="Component" title="Component">
           &nbsp;
-          {{online.detail.entity.host}}
-          &nbsp;
-          -
-          &nbsp;
-          {{online.component.id}}
+          Component
+        </h3>
+      </div>
+
+      <div class="pull-right">
+        <h3 class="panel-title">
+          {{online.detail.plugin.library}}:{{online.detail.plugin.type}}
           &nbsp;
           <img class="mylife-icon" enums-image-src="{ type: 'PluginUsage', value: online.detail.plugin.usage }" enums-title="{ type: 'PluginUsage', value: online.detail.plugin.usage }">
+        </h3>
+      </div>
+
+      <div class="mylife-panel-title">
+        <h3 class="panel-title">
+          {{online.detail.component.id}}
         </h3>
       </div>
 
