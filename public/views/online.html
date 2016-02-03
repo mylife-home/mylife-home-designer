@@ -227,6 +227,7 @@
           <enums-text spec="{ type: 'PluginConfigType', value: config.type }"></enums-text>
         </li>
       </ul>
+
     </div>
   </div>
 </script>
@@ -260,7 +261,28 @@
     </div>
     <div class="panel-body">
 
-      {{ online.detail.component }}
+      <ul>
+        <li ng-repeat="config in online.detail.component.config">
+          <img class="mylife-icon-small" static-image-src="CompConfig" title="Configuration">
+          &nbsp;
+          Configuration
+          &nbsp;
+          {{config.key}} = {{config.value}}
+        </li>
+        <li ng-repeat="binding in online.detail.component.bindings">
+          <img class="mylife-icon-small" static-image-src="CompBinding" title="Binding">
+          &nbsp;
+          Binding
+          &nbsp;
+          <img class="mylife-icon-small" static-image-src="CompAction" title="Action">
+          &nbsp;
+          {{binding.local_action}}
+          &nbsp;
+          <img class="mylife-icon-small" static-image-src="CompAttribute" title="Attribute">
+          &nbsp;
+          {{binding.remote_id}}.{{binding.remote_attribute}}
+        </li>
+      </ul>
 
     </div>
   </div>
