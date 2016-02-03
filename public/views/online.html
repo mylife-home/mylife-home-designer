@@ -50,7 +50,6 @@
                 &nbsp;
                 {{component.library}}:{{component.type}}
               </button>
-              <!-- TODO beautify + icon + plugin library:type -->
             </li>
           </ul>
 
@@ -99,14 +98,37 @@
     </div>
     <div class="panel-body">
 
-      <ul ng-if="online.detail.entity.type === online.types.RESOURCES">keys
-        <li ng-repeat="key in online.detail.entity.keys"><button ng-click="online.showResourceDetail(online.detail.entity, key)" class="btn btn-default">{{key}}</button></li>
-      </ul>
-      <ul ng-if="online.detail.entity.type === online.types.CORE">plugins
-        <li ng-repeat="plugin in online.detail.entity.plugins"><button ng-click="online.showPluginDetail(online.detail.entity, plugin)" class="btn btn-default">{{plugin.library}}:{{plugin.type}}</button></li>
-      </ul>
-      <ul ng-if="online.detail.entity.type === online.types.CORE">components
-        <li ng-repeat="component in online.detail.entity.components"><button ng-click="online.showComponentDetail(online.detail.entity, component)" class="btn btn-default">{{component.id}}</button></li>
+      <ul>
+        <li ng-if="online.detail.entity.type === online.types.RESOURCES"
+            ng-repeat="key in online.detail.entity.keys">
+          <button ng-click="online.showResourceDetail(online.detail.entity, key)" class="btn btn-default">
+            <img class="mylife-icon-small" static-image-src="Resource" title="Resource">
+            &nbsp;
+            {{key}}
+          </button>
+        </li>
+
+        <li ng-if="online.detail.entity.type === online.types.CORE"
+            ng-repeat="plugin in online.detail.entity.plugins">
+          <button ng-click="online.showPluginDetail(online.detail.entity, plugin)" class="btn btn-default">
+            <img class="mylife-icon-small" static-image-src="Plugin" title="Plugin">
+            &nbsp;
+            {{plugin.library}}:{{plugin.type}}
+            &nbsp;
+            <img class="mylife-icon-small" enums-image-src="{ type: 'PluginUsage', value: plugin.usage }" enums-title="{ type: 'PluginUsage', value: plugin.usage }">
+          </button>
+        </li>
+
+        <li ng-if="online.detail.entity.type === online.types.CORE"
+            ng-repeat="component in online.detail.entity.components">
+          <button ng-click="online.showComponentDetail(online.detail.entity, component)" class="btn btn-default">
+            <img class="mylife-icon-small" static-image-src="Component" title="Component">
+            &nbsp;
+            {{component.id}}
+            &nbsp;
+            {{component.library}}:{{component.type}}
+          </button>
+        </li>
       </ul>
 
     </div>
@@ -175,8 +197,32 @@
     </div>
     <div class="panel-body">
 
-      {{ online.detail.plugin }}
-
+      <ul>
+        <!-- TODO: version -->
+        <li ng-repeat="attribute in online.detail.pluginClass.attributes">
+          <img class="mylife-icon-small" static-image-src="CompAttribute" title="Attribute">
+          &nbsp;
+          {{attribute.name}}
+          &nbsp;
+          {{attribute.type}}
+        </li>
+        <li ng-repeat="action in online.detail.pluginClass.actions">
+          <img class="mylife-icon-small" static-image-src="CompAction" title="Action">
+          &nbsp;
+          {{attribute.name}}
+          &nbsp;
+          {{attribute.args.join(', ')}}
+        </li>
+        <li ng-repeat="config in online.detail.pluginConfig">
+          <img class="mylife-icon-small" static-image-src="CompConfig" title="Config">
+          &nbsp;
+          {{config.name}}
+          &nbsp;
+          <img class="mylife-icon-small" enums-image-src="{ type: 'PluginConfigType', value: config.type }" enums-title="{ type: 'PluginConfigType', value: config.type }">
+          &nbsp;
+          <enums-text spec="{ type: 'PluginConfigType', value: config.type }"></enums-text>
+        </li>
+      </ul>
     </div>
   </div>
 </script>

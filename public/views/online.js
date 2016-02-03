@@ -2,7 +2,7 @@
 
 angular.module('mylife-home-designer.views')
 
-.controller('onlineController', function (repository, images) {
+.controller('onlineController', function (repository, images, pluginManip) {
 
   this.entities = repository.entities;
   this.types    = repository.types;
@@ -32,7 +32,9 @@ angular.module('mylife-home-designer.views')
     this.detail = {
       type: 'plugin',
       entity,
-      plugin
+      plugin,
+      pluginClass: pluginManip.parseClass(plugin.clazz),
+      pluginConfig: pluginManip.parseConfig(plugin.config),
     };
   };
 
