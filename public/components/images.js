@@ -58,6 +58,7 @@ angular.module('mylife-home-designer.components')
 
     PluginConfigTypeInteger : 'images/open-icon-library/mimetypes/crystal-style/application-octet-stream.png',
     PluginConfigTypeNumber  : 'images/open-icon-library/mimetypes/crystal-style/application-octet-stream.png',
+    PluginConfigTypeBoolean : 'images/open-icon-library/mimetypes/crystal-style/application-octet-stream.png',
     PluginConfigTypeString  : 'images/open-icon-library/mimetypes/crystal-style/application-x-applix-word.png',
 
     UIWindow                : 'images/open-icon-library/places/crystal_clear-style/user-desktop.png',

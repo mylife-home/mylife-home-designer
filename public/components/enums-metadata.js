@@ -12,9 +12,16 @@ angular.module('mylife-home-designer.components')
     ],
 
     PluginUsage: [
-      { id : 'vpanel',   value: 1, image: images.PluginUsageVPanel,  displayName: 'Virtual panel' },
-      { id : 'ui',       value: 2, image: images.PluginUsageUI,      displayName: 'UI' },
+      { id : 'vpanel',   value: 1, image: images.PluginUsageVPanel,  displayName: 'Virtual panel'   },
+      { id : 'ui',       value: 2, image: images.PluginUsageUI,      displayName: 'UI'              },
       { id : 'driver',   value: 3, image: images.PluginUsageDriver,  displayName: 'Hardware driver' }
+    ],
+
+    PluginConfigType: [
+      { id : 'string',   value: 1, image: images.PluginConfigTypeString,  displayName: 'String'  },
+      { id : 'integer',  value: 2, image: images.PluginConfigTypeInteger, displayName: 'Integer' },
+      { id : 'number',   value: 3, image: images.PluginConfigTypeNumber,  displayName: 'Number'  },
+      { id : 'boolean',  value: 4, image: images.PluginConfigTypeBoolean, displayName: 'Boolean' }
     ]
   };
 
