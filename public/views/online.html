@@ -23,19 +23,33 @@
           <ul>
             <li ng-if="entity.type === online.types.RESOURCES"
                 ng-repeat="key in entity.keys">
-              <button ng-click="online.showResourceDetail(entity, key)" class="btn btn-default">{{key}}</button>
-              <!-- TODO beautify + icon -->
+              <button ng-click="online.showResourceDetail(entity, key)" class="btn btn-default">
+                <img class="mylife-icon-small" static-image-src="Resource" title="Resource">
+                &nbsp;
+                {{key}}
+              </button>
             </li>
 
             <li ng-if="entity.type === online.types.CORE"
                 ng-repeat="plugin in entity.plugins">
-              <button ng-click="online.showPluginDetail(entity, plugin)" class="btn btn-default">{{plugin.library}}:{{plugin.type}}</button>
-              <!-- TODO beautify + icon + usage icon -->
+              <button ng-click="online.showPluginDetail(entity, plugin)" class="btn btn-default">
+                <img class="mylife-icon-small" static-image-src="Plugin" title="Plugin">
+                &nbsp;
+                {{plugin.library}}:{{plugin.type}}
+                &nbsp;
+                <img class="mylife-icon-small" enums-image-src="{ type: 'PluginUsage', value: plugin.usage }" enums-title="{ type: 'PluginUsage', value: plugin.usage }">
+              </button>
             </li>
 
             <li ng-if="entity.type === online.types.CORE"
                 ng-repeat="component in entity.components">
-              <button ng-click="online.showComponentDetail(entity, component)" class="btn btn-default">{{component.id}}</button>
+              <button ng-click="online.showComponentDetail(entity, component)" class="btn btn-default">
+                <img class="mylife-icon-small" static-image-src="Component" title="Component">
+                &nbsp;
+                {{component.id}}
+                &nbsp;
+                {{component.library}}:{{component.type}}
+              </button>
               <!-- TODO beautify + icon + plugin library:type -->
             </li>
           </ul>
@@ -204,7 +218,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3" ng-include="'online-group-view'"></div>
-    <div class="col-md-9" ng-include="'online-detail-view'"></div>
+    <div class="col-md-4" ng-include="'online-group-view'"></div>
+    <div class="col-md-8" ng-include="'online-detail-view'"></div>
   </div>
 </div>
