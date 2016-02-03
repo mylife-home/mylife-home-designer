@@ -198,7 +198,11 @@
     <div class="panel-body">
 
       <ul>
-        <!-- TODO: version -->
+        <li>
+          <img class="mylife-icon-small" static-image-src="Version" title="Version">
+          &nbsp;
+          {{online.detail.plugin.version}}
+        </li>
         <li ng-repeat="attribute in online.detail.pluginClass.attributes">
           <img class="mylife-icon-small" static-image-src="CompAttribute" title="Attribute">
           &nbsp;
@@ -209,9 +213,9 @@
         <li ng-repeat="action in online.detail.pluginClass.actions">
           <img class="mylife-icon-small" static-image-src="CompAction" title="Action">
           &nbsp;
-          {{attribute.name}}
+          {{action.name}}
           &nbsp;
-          {{attribute.args.join(', ')}}
+          {{action.args.join(', ')}}
         </li>
         <li ng-repeat="config in online.detail.pluginConfig">
           <img class="mylife-icon-small" static-image-src="CompConfig" title="Config">
