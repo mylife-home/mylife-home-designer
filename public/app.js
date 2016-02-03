@@ -7,6 +7,7 @@ import 'angular-bootstrap';
 import './components/components.js';
 import './components/data.js';
 import './components/repository.js';
+import './components/plugin-manip.js';
 import './components/images.js';
 import './components/enums-metadata.js';
 
